@@ -81,8 +81,8 @@ export default function Navbar() {
                                 </svg>
                             </button>
                             {isMenuOpen && (
-                                <div className="absolute top-0 left-0 w-full">
-                                    <div className="p-5 bg-white border rounded shadow-sm">
+                                <div className="absolute top-0 left-0 w-full bg-white/20 backdrop-blur-xl">
+                                    <div className="p-5 border rounded shadow-sm">
                                         <div className="flex items-center justify-between mb-4">
                                             <div>
                                                 <a
@@ -91,24 +91,7 @@ export default function Navbar() {
                                                     title="Company"
                                                     className="inline-flex items-center"
                                                 >
-                                                    <svg
-                                                        className="w-8 text-deep-purple-accent-400"
-                                                        viewBox="0 0 24 24"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth="2"
-                                                        strokeLinecap="round"
-                                                        strokeMiterlimit="10"
-                                                        stroke="currentColor"
-                                                        fill="none"
-                                                    >
-                                                        <rect x="3" y="1" width="7" height="12" />
-                                                        <rect x="3" y="17" width="7" height="6" />
-                                                        <rect x="14" y="1" width="7" height="6" />
-                                                        <rect x="14" y="11" width="7" height="12" />
-                                                    </svg>
-                                                    <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                        Company
-                                                    </span>
+                                                    <RmLogo />
                                                 </a>
                                             </div>
                                             <div>
@@ -130,54 +113,37 @@ export default function Navbar() {
                                         <nav>
                                             <ul className="space-y-4">
                                                 <li>
-                                                    <a
-                                                        href="/"
-                                                        aria-label="Our product"
-                                                        title="Our product"
-                                                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    <Link
+                                                        href="/personajes"
+                                                        aria-label="Personajes de la serie"
+                                                        title="Personajes"
                                                     >
-                                                        Product
-                                                    </a>
+                                                        <button className="w-full cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
+                                                            Personajes
+                                                        </button>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a
-                                                        href="/"
-                                                        aria-label="Our product"
-                                                        title="Our product"
-                                                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    <Link
+                                                        href="/locaciones"
+                                                        aria-label="Locaciones de la serie"
+                                                        title="Locaciones"
                                                     >
-                                                        Features
-                                                    </a>
+                                                        <button className="w-full cursor-pointer transition-all bg-emerald-500 text-white px-6 py-2 rounded-lg border-emerald-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
+                                                            Locaciones
+                                                        </button>
+                                                    </Link>
                                                 </li>
                                                 <li>
-                                                    <a
-                                                        href="/"
-                                                        aria-label="Product pricing"
-                                                        title="Product pricing"
-                                                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                    <Link
+                                                        href="/favs"
+                                                        aria-label="favoritos seleccionados"
+                                                        title="favoritos"
                                                     >
-                                                        Pricing
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="/"
-                                                        aria-label="About us"
-                                                        title="About us"
-                                                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                    >
-                                                        About us
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="/"
-                                                        className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                        aria-label="Sign up"
-                                                        title="Sign up"
-                                                    >
-                                                        Sign up
-                                                    </a>
+                                                        <button className="w-full cursor-pointer transition-all bg-slate-400 text-white px-6 py-2 rounded-lg border-slate-500 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
+                                                            Favoritos
+                                                        </button>
+                                                    </Link>
                                                 </li>
                                             </ul>
                                         </nav>

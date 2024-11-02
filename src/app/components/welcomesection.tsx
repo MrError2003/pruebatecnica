@@ -23,7 +23,7 @@ export default function WelcomeSection() {
                     <div className="mt-8 flex flex-wrap justify-center gap-4">
                         <Link
                             className="block w-full sm:w-auto"
-                            href="#"
+                            href="/personajes"
                         >
                             <Wbutton />
                         </Link>
