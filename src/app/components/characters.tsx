@@ -49,7 +49,7 @@ export default function Characters() {
             setCharacters(data.results);
             setTotalPages(data.info.pages); // Total de páginas disponibles
 
-            // Fetch episodios de los personajes
+            // Fetch episodios de los personajes                                                    -- Codigo JD23ZM --
             const episodeUrls = Array.from(
                 new Set(data.results.flatMap((character) => character.episode))
             ); // URLs únicas de episodios
