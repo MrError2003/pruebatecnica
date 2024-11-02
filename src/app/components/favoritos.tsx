@@ -2,16 +2,48 @@
 
 import React from "react";
 import { useFavorites } from '../context/favoritescontext';
+import { useState } from 'react';
 
 export default function Favs() {
     const { favorites, removeFavorite } = useFavorites();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+    const sendFavoritesToDB = async () => {
+        setIsLoading(true);
+        setError(null);
+        try {
+            const response = await fetch('/api/favorites', { // Cambia la URL a relativa
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(favorites),
+            });
+    
+            const data = await response.json();
+    
+            if (!response.ok) {
+                throw new Error(data.error || 'Error al guardar favoritos');
+            }
+    
+            alert('Favoritos guardados exitosamente');
+        } catch (error: any) {
+            console.error('Error:', error);
+            setError(error.message || "Hubo un error al guardar los favoritos");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    
 
     return (
         <section className="p-20">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
                 <div className="mx-auto max-w-3xl">
                     <div className="mx-auto max-w-3xl text-center">
-                        <h1 className="bg-gradient-to-r from-slate-200 to-gray-300 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl">
+                        <h1 className=" bg-gradient-to-r from-slate-200 to-gray-300 bg-clip-text text-4xl font-extrabold text-transparent sm:text-5xl">
                             FAVORITOS
                         </h1>
                     </div>
@@ -31,7 +63,7 @@ export default function Favs() {
                                     </div>
 
                                     <div className="flex flex-1 items-center justify-end gap-2 pr-4">
-                                        <button 
+                                        <button
                                             onClick={() => removeFavorite(item.id)}
                                             className="text-gray-600 transition hover:text-red-600"
                                         >
@@ -55,6 +87,26 @@ export default function Favs() {
                                 </li>
                             ))}
                         </ul>
+                        <span className="flex items-center">
+                            <span className="h-px flex-1 bg-white/60"></span>
+                            <span className="shrink-0 px-6">¿Quieres enviarlos a la base de datos?</span>
+                            <span className="h-px flex-1 bg-white/60"></span>
+                        </span>
+
+                        <div className="mt-4 flex items-center align-middle justify-center">
+                            <button 
+                                onClick={sendFavoritesToDB}
+                                disabled={isLoading}
+                                className={`cursor-pointer transition-all bg-gray-500 text-white px-6 py-2 rounded-lg border-slate-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            >
+                                {isLoading ? 'Guardando...' : 'Guardar Favoritos'}
+                            </button>
+                        </div>
+
+                        {error && (
+                            <p className="text-red-500 text-center mt-2">{error}</p>
+                        )}
+
                     </div>
                 </div>
             </div>
