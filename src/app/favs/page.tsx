@@ -1,6 +1,4 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import Background from "../components/background";
