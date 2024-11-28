@@ -13,7 +13,7 @@ export default function Navbar() {
             <div className="bg-white/10 backdrop-blur-sm">
                 <div className="px-4 py-3 mx-auto sm:max-w-full md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                     <div className="relative flex items-center justify-between">
-                        <a
+                        <Link
                             href="/"
                             aria-label="Company"
                             title="Company"
@@ -22,7 +22,7 @@ export default function Navbar() {
 
                             <RmLogo />
 
-                        </a>
+                        </Link>
                         <ul className="flex items-center space-x-8 lg:flex">
                             <li>
                                 <Link
@@ -85,14 +85,14 @@ export default function Navbar() {
                                     <div className="p-5 border rounded shadow-sm">
                                         <div className="flex items-center justify-between mb-4">
                                             <div>
-                                                <a
+                                                <Link
                                                     href="/"
                                                     aria-label="Company"
                                                     title="Company"
                                                     className="inline-flex items-center"
                                                 >
                                                     <RmLogo />
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div>
                                                 <button

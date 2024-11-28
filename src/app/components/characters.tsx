@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useFavorites } from "../context/favoritescontext";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Character {
     id: number;
@@ -38,7 +40,6 @@ export default function Characters() {
     const [episodes, setEpisodes] = useState<{ [key: string]: Episode }>({});
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const itemsPerPage = 18; // Máximo 18 personajes por página
     const [selectedCharacter, setSelectedCharacter] = useState<Character | null>(null);
 
     // Función para obtener los personajes de la API
@@ -105,7 +106,7 @@ export default function Characters() {
 
             <div className="grid gap-6 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                 {characters.map((character) => (
-                    <a
+                    <Link
                         key={character.id}
                         href="#"
                         onClick={(e) => {
@@ -117,7 +118,7 @@ export default function Characters() {
 
 
 
-                        <img
+                        <Image
                             alt={character.name}
                             src={character.image}
                             className="h-48 w-full rounded-md object-cover"
@@ -159,7 +160,7 @@ export default function Characters() {
 
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
 

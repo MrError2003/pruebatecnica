@@ -23,7 +23,6 @@ export default function Locations() {
     const [locations, setLocations] = useState<Location[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const itemsPerPage = 18; // Máximo 18 locaciones por página
     const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
     
 

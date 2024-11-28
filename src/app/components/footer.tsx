@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import RmLogo from "./logo";
 
 export default function Footer() {
